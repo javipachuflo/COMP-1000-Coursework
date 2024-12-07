@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <iostream> //for debugging
 
 
 int main()
@@ -21,11 +22,12 @@ int main()
     enemy.setPosition(sf::Vector2f(960, 540));
     enemy.setOrigin(sf::Vector2f(7, 7));
 
-    sf::Clock clock; // This will allow us to check how much time has passed between frames, making the player move at the same speed in all types of PCs
+    sf::Clock clock; 
 
     while (window.isOpen())
     {
-        sf::Time timeSinceLastFrame = clock.restart();
+        sf::Time timeSinceLastFrame = clock.restart(); // This variable will hold much time has passed between frames, making the player move at the same speed in all types of PCs when we times this value by the player input.
+
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -36,6 +38,8 @@ int main()
         }
 
         sf::Vector2f vRequestedPlayerMovement(0.0f, 0.0f); // create a new vector2f (floating point vector) that will change depending on the input.
+
+        float fSpeed = 500.0f;
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
             vRequestedPlayerMovement += sf::Vector2f(0.0f, -1.0f); // increse by a negative y value
@@ -52,12 +56,16 @@ int main()
             vRequestedPlayerMovement += sf::Vector2f(1.0f, 0.0f);// increse by a positive x value
 
         }
+        //std::cout << vRequestedPlayerMovement.x << "\n";
+        //std::cout << vRequestedPlayerMovement.y << "\n";
 
-        player.move(vRequestedPlayerMovement);
+
+
+        player.move(vRequestedPlayerMovement * fSpeed * timeSinceLastFrame.asSeconds()); // the input of the player times the time it took for the frame to pass
 
         window.clear();
         window.draw(player); // draw the player
-        window.draw(enemy); // draw the enemy
+        //window.draw(enemy); // draw the enemy
         window.display();
     }
 
