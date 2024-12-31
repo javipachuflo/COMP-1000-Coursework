@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "RepeatedlyUsedFunctions.h"
 
 #include <SFML/Graphics.hpp>
 #include <vector>
@@ -18,43 +19,55 @@ Game::~Game()
 
 bool Game::Update()
 {
-    sf::RenderWindow window(sf::VideoMode(1080, 1080), "MysteryMaze");// set the window size to my monitor size
+    // Generate the maze
+    const int mazeWidth = 20;
+    const int mazeHeight = 20;
+    std::vector<std::vector<int>> maze = generateMaze(mazeWidth, mazeHeight);
+
+    // Calculate the bottom-left-most cell
+    sf::Vector2i bottomLeftMostCell(mazeWidth - 1, mazeHeight - 1);
+
+    int windowDimenstions = 720;
+
+    sf::RenderWindow window(sf::VideoMode(windowDimenstions, windowDimenstions), "MysteryMaze"); // set the window size to 720x720
     window.setFramerateLimit(60); // set the framerate to 60 frames per second
 
     sf::Texture wallTexture;
     wallTexture.loadFromFile("Images/MysteryMaze_Wall_2.png");
     sf::Sprite wall(wallTexture);
-    float cellSize = 54.0f; // Adjusted cell size to fit the window
+    float cellSize = windowDimenstions / 20.0f; // Adjusted cell size to fit the window
+    float player_enemy_items_size = 0.6f; // Adjusted player, enemy and items size to fit the window
     wall.setScale(cellSize / wallTexture.getSize().x, cellSize / wallTexture.getSize().y);
     wall.setOrigin(sf::Vector2f(wallTexture.getSize().x / 2.0f, wallTexture.getSize().y / 2.0f));
 
-	sf::Texture floorTexture;
-	floorTexture.loadFromFile("Images/MysteryMaze_Floor_Tile_2.png");
-	sf::Sprite floor(floorTexture);
-	floor.setScale(cellSize / floorTexture.getSize().x, cellSize / floorTexture.getSize().y);
-	floor.setOrigin(sf::Vector2f(floorTexture.getSize().x / 2.0f, floorTexture.getSize().y / 2.0f));
+    sf::Texture floorTexture;
+    floorTexture.loadFromFile("Images/MysteryMaze_Floor_Tile_2.png");
+    sf::Sprite floor(floorTexture);
+    floor.setScale(cellSize / floorTexture.getSize().x, cellSize / floorTexture.getSize().y);
+    floor.setOrigin(sf::Vector2f(floorTexture.getSize().x / 2.0f, floorTexture.getSize().y / 2.0f));
 
     // get player texture as a Sprite and set the sprite's scale to 10x bigger and its origin to the center of the sprite 
     sf::Texture playerTexture;
     playerTexture.loadFromFile("Images/MysteryMaze_Player.png");
     sf::Sprite player(playerTexture);
-    player.setScale(sf::Vector2f(3, 3));
-    player.setOrigin(sf::Vector2f(6, 5.5f));
+    player.setScale(cellSize / playerTexture.getSize().x * player_enemy_items_size, cellSize / playerTexture.getSize().y * player_enemy_items_size);
+    player.setOrigin(sf::Vector2f(playerTexture.getSize().x / 2.0f, playerTexture.getSize().y / 2.0f));
 
     // get enemy texture as a Sprite and set the sprite's scale to 10x bigger and its origin to the center of the sprite as well as the position to the center (half and half of my monitor resolution)
     sf::Texture enemyTexture;
     enemyTexture.loadFromFile("Images/MysteryMaze_Enemy.png");
     sf::Sprite enemy(enemyTexture);
-    enemy.setScale(sf::Vector2f(3, 3));
-    enemy.setPosition(sf::Vector2f(960, 540));
-    enemy.setOrigin(sf::Vector2f(6, 5.5f));
+    enemy.setScale(cellSize / enemyTexture.getSize().x * player_enemy_items_size, cellSize / enemyTexture.getSize().y * player_enemy_items_size);
+    enemy.setOrigin(sf::Vector2f(enemyTexture.getSize().x / 2.0f, enemyTexture.getSize().y / 2.0f));
+
+    sf::Texture goalTexture;
+    goalTexture.loadFromFile("Images/MysteryMaze_Goal.png");
+    sf::Sprite goal(goalTexture);
+    goal.setScale((cellSize - 1) / goalTexture.getSize().x, (cellSize - 1) / goalTexture.getSize().y);
+    goal.setOrigin(sf::Vector2f(goalTexture.getSize().x / 2.0f, goalTexture.getSize().y / 2.0f));
+    goal.setPosition(sf::Vector2f(bottomLeftMostCell.x * cellSize - (0.5f * cellSize), bottomLeftMostCell.y * cellSize - (0.5f * cellSize)));
 
     sf::Clock clock;
-
-    // Generate the maze
-    const int mazeWidth = 20;
-    const int mazeHeight = 20;
-    std::vector<std::vector<int>> maze = generateMaze(mazeWidth, mazeHeight);
 
     while (window.isOpen())
     {
@@ -160,16 +173,15 @@ bool Game::Update()
 
         window.clear(sf::Color::White); // Change the background color to white
 
-		//Draw the floor
-		for (int i = 0; i < mazeWidth; ++i)
-		{
-			for (int j = 0; j < mazeHeight; ++j)
-			{
-				floor.setPosition(sf::Vector2f(i* cellSize + cellSize / 2, j* cellSize + cellSize / 2));
-				window.draw(floor);
-			}
-		}
-
+        //Draw the floor
+        for (int i = 0; i < mazeWidth; ++i)
+        {
+            for (int j = 0; j < mazeHeight; ++j)
+            {
+                floor.setPosition(sf::Vector2f(i * cellSize + cellSize / 2, j * cellSize + cellSize / 2));
+                window.draw(floor);
+            }
+        }
 
         // Draw the maze
         for (int i = 0; i < mazeWidth; ++i)
@@ -186,12 +198,12 @@ bool Game::Update()
 
         window.draw(player); // draw the player
         //window.draw(enemy); // draw the enemy
+        window.draw(goal); // draw the goal
         window.display();
     }
 
     return true;
 }
-
 std::vector<std::vector<int>> Game::generateMaze(int width, int height)
 {
     // Initialize the maze with all walls (1s)

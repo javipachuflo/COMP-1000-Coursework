@@ -22,11 +22,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:0:0:{29b59575-67fc-487a-ad50-20c439ec1d21}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
@@ -34,9 +42,9 @@
               "Title": "Game.cpp",
               "DocumentMoniker": "C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\Game.cpp",
               "RelativeDocumentMoniker": "MysteryMaze\\Game.cpp",
-              "ToolTip": "C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\Game.cpp",
-              "RelativeToolTip": "MysteryMaze\\Game.cpp",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAWwB8AAAA7AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\Game.cpp*",
+              "RelativeToolTip": "MysteryMaze\\Game.cpp*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-08T17:40:39.922Z",
               "EditorCaption": ""
@@ -49,7 +57,7 @@
               "RelativeDocumentMoniker": "MysteryMaze\\Game.h",
               "ToolTip": "C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\Game.h",
               "RelativeToolTip": "MysteryMaze\\Game.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-08T17:40:29.476Z",
               "EditorCaption": ""
@@ -62,7 +70,7 @@
               "RelativeDocumentMoniker": "MysteryMaze\\MysteryMaze.cpp",
               "ToolTip": "C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\MysteryMaze.cpp",
               "RelativeToolTip": "MysteryMaze\\MysteryMaze.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-05T20:51:25.275Z",
               "EditorCaption": ""
