@@ -21,9 +21,14 @@ Game::~Game()
 
 int Game::Update()
 {
+    // make it scalable first.
+	static int level = 1;
+
+    int mazeDimensions = 10 * level;
+
     // Generate the maze
-    const int mazeWidth = 20;
-    const int mazeHeight = 20;
+    const int mazeWidth = mazeDimensions;
+    const int mazeHeight = mazeDimensions;
     std::vector<std::vector<int>> maze = generateMaze(mazeWidth, mazeHeight);
 
     // Calculate the bottom-left-most cell
@@ -37,7 +42,7 @@ int Game::Update()
     sf::Texture wallTexture;
     wallTexture.loadFromFile("Images/MysteryMaze_Wall_2.png");
     sf::Sprite wall(wallTexture);
-    float cellSize = windowDimenstions / 20.0f; // Adjusted cell size to fit the window
+	float cellSize = windowDimenstions / mazeDimensions; // Adjusted cell size to fit the window // changing this 20 to 10 will make the maze 10x bigger, so less maze will render in the window.
     float player_enemy_items_size = 0.6f; // Adjusted player, enemy and items size to fit the window
     wall.setScale(cellSize / wallTexture.getSize().x, cellSize / wallTexture.getSize().y);
     wall.setOrigin(sf::Vector2f(wallTexture.getSize().x / 2.0f, wallTexture.getSize().y / 2.0f));
@@ -178,7 +183,11 @@ int Game::Update()
 		sf::FloatRect goalBounds(goal.getPosition().x - goal.getOrigin().x * goal.getScale().x, goal.getPosition().y - goal.getOrigin().y * goal.getScale().y, goal.getGlobalBounds().width, goal.getGlobalBounds().height);
 		if (playerBounds.intersects(goalBounds)) {
 			//Do whatever you want to do when the player reaches the goal
+            //when the window closes, it returns 2 but then continues and returns 1, meaning that the window will re-open with a different maze. 
+            // By adding 1 to the constant, I can multiply it by 10 to add that much more depth to the new maze. 
+            // First, however, I need to be able to scale the maze for it all to fit in the same window.
 			window.close();
+            level++;
 			return 2;
 		}
 
