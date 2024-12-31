@@ -8,6 +8,8 @@
 #include <cstdlib>
 #include <ctime>
 
+//return key: 0 = close window, 1 = continue game, 2 = win game, 3 = lose game
+
 Game::Game()
 {
     std::srand(static_cast<unsigned int>(std::time(nullptr))); // Seed for random number generation
@@ -17,7 +19,7 @@ Game::~Game()
 {
 }
 
-bool Game::Update()
+int Game::Update()
 {
     // Generate the maze
     const int mazeWidth = 20;
@@ -79,7 +81,7 @@ bool Game::Update()
             if (event.type == sf::Event::Closed)
             {
                 window.close();
-                return false;
+                return 0;
             }
         }
 
@@ -171,6 +173,16 @@ bool Game::Update()
 
         player.setPosition(newPosition);
 
+		// Create player bounds again and goal bounds to Check its collisions with the goal // FloatRect is a rectangle with floating point values
+		sf::FloatRect playerBounds(player.getPosition().x - player.getOrigin().x * player.getScale().x, player.getPosition().y - player.getOrigin().y * player.getScale().y, player.getGlobalBounds().width, player.getGlobalBounds().height);
+		sf::FloatRect goalBounds(goal.getPosition().x - goal.getOrigin().x * goal.getScale().x, goal.getPosition().y - goal.getOrigin().y * goal.getScale().y, goal.getGlobalBounds().width, goal.getGlobalBounds().height);
+		if (playerBounds.intersects(goalBounds)) {
+			//Do whatever you want to do when the player reaches the goal
+			window.close();
+			return 2;
+		}
+
+
         window.clear(sf::Color::White); // Change the background color to white
 
         //Draw the floor
@@ -202,8 +214,9 @@ bool Game::Update()
         window.display();
     }
 
-    return true;
+    return 1;
 }
+
 std::vector<std::vector<int>> Game::generateMaze(int width, int height)
 {
     // Initialize the maze with all walls (1s)

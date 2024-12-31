@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{B5236B10-4F05-4094-8130-E03B324A7E96}|MysteryMaze\\MysteryMaze.vcxproj|solutionrelative:MysteryMaze\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5236B10-4F05-4094-8130-E03B324A7E96}|MysteryMaze\\MysteryMaze.vcxproj|C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\MysteryMaze.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B5236B10-4F05-4094-8130-E03B324A7E96}|MysteryMaze\\MysteryMaze.vcxproj|solutionrelative:MysteryMaze\\MysteryMaze.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B5236B10-4F05-4094-8130-E03B324A7E96}|MysteryMaze\\MysteryMaze.vcxproj|C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B5236B10-4F05-4094-8130-E03B324A7E96}|MysteryMaze\\MysteryMaze.vcxproj|solutionrelative:MysteryMaze\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5236B10-4F05-4094-8130-E03B324A7E96}|MysteryMaze\\MysteryMaze.vcxproj|C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\MysteryMaze.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B5236B10-4F05-4094-8130-E03B324A7E96}|MysteryMaze\\MysteryMaze.vcxproj|solutionrelative:MysteryMaze\\MysteryMaze.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,29 +42,29 @@
               "Title": "Game.cpp",
               "DocumentMoniker": "C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\Game.cpp",
               "RelativeDocumentMoniker": "MysteryMaze\\Game.cpp",
-              "ToolTip": "C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\Game.cpp*",
-              "RelativeToolTip": "MysteryMaze\\Game.cpp*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAcAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\Game.cpp",
+              "RelativeToolTip": "MysteryMaze\\Game.cpp",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFMAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-08T17:40:39.922Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Game.h",
               "DocumentMoniker": "C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\Game.h",
               "RelativeDocumentMoniker": "MysteryMaze\\Game.h",
-              "ToolTip": "C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\Game.h",
-              "RelativeToolTip": "MysteryMaze\\Game.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\Game.h*",
+              "RelativeToolTip": "MysteryMaze\\Game.h*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-08T17:40:29.476Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MysteryMaze.cpp",
               "DocumentMoniker": "C:\\Users\\jasan\\Visual Studio\\GitHub\\COMP-1000-Coursework\\MysteryMaze\\MysteryMaze\\MysteryMaze.cpp",
               "RelativeDocumentMoniker": "MysteryMaze\\MysteryMaze.cpp",

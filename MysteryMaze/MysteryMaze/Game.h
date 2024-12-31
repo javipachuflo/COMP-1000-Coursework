@@ -6,7 +6,7 @@ class Game
 public:
     Game();
     ~Game();
-    bool Update();
+    int Update();
 
 private:
     std::vector<std::vector<int>> generateMaze(int width, int height);
