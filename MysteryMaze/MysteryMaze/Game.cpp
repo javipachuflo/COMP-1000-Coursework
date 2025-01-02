@@ -1,7 +1,7 @@
 #include "Game.h"
-#include "RepeatedlyUsedFunctions.h"
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include <vector>
 #include <stack>
 #include <utility>
@@ -23,8 +23,9 @@ int Game::Update()
 {
     // make it scalable first.
 	static int level = 1;
+	std::cout << "Level: " << level << std::endl;
 
-    int mazeDimensions = 10 * level;
+	float mazeDimensions = 10.0f * level; // 10x10 maze for level 1, 20x20 maze for level 2, 30x30 maze for level 3, etc.
 
     // Generate the maze
     const int mazeWidth = mazeDimensions;
@@ -66,6 +67,15 @@ int Game::Update()
     sf::Sprite enemy(enemyTexture);
     enemy.setScale(cellSize / enemyTexture.getSize().x * player_enemy_items_size, cellSize / enemyTexture.getSize().y * player_enemy_items_size);
     enemy.setOrigin(sf::Vector2f(enemyTexture.getSize().x / 2.0f, enemyTexture.getSize().y / 2.0f));
+
+    // Find a random empty cell for the enemy
+    sf::Vector2i enemyPosition;
+    do {
+        enemyPosition.x = std::rand() % mazeWidth;
+        enemyPosition.y = std::rand() % mazeHeight;
+    } while (maze[enemyPosition.x][enemyPosition.y] != 0);
+
+    enemy.setPosition(sf::Vector2f(enemyPosition.x * cellSize + cellSize / 2, enemyPosition.y * cellSize + cellSize / 2));
 
     sf::Texture goalTexture;
     goalTexture.loadFromFile("Images/MysteryMaze_Goal.png");
@@ -113,10 +123,13 @@ int Game::Update()
         sf::Vector2f newPosition = player.getPosition();
         sf::Vector2f movement = vRequestedPlayerMovement * fSpeed * timeSinceLastFrame.asSeconds();
 
-        // Check for collisions with the walls for each direction separately
+    // Check for collisions with the walls for each direction separately
+        float shrinkFactor = 0.9f; // Shrink the bounding box by 10%
+        sf::Vector2f playerSize(player.getGlobalBounds().width * shrinkFactor, player.getGlobalBounds().height * shrinkFactor);
+
         if (movement.x != 0.0f) {
             sf::Vector2f newXPosition = newPosition + sf::Vector2f(movement.x, 0.0f);
-            sf::FloatRect playerBounds(newXPosition.x - player.getOrigin().x * player.getScale().x, newXPosition.y - player.getOrigin().y * player.getScale().y, player.getGlobalBounds().width, player.getGlobalBounds().height);
+            sf::FloatRect playerBounds(newXPosition.x - playerSize.x / 2, newXPosition.y - playerSize.y / 2, playerSize.x, playerSize.y);
             bool collision = false;
             for (int i = 0; i < mazeWidth; ++i)
             {
@@ -142,7 +155,7 @@ int Game::Update()
 
         if (movement.y != 0.0f) {
             sf::Vector2f newYPosition = newPosition + sf::Vector2f(0.0f, movement.y);
-            sf::FloatRect playerBounds(newYPosition.x - player.getOrigin().x * player.getScale().x, newYPosition.y - player.getOrigin().y * player.getScale().y, player.getGlobalBounds().width, player.getGlobalBounds().height);
+            sf::FloatRect playerBounds(newYPosition.x - playerSize.x / 2, newYPosition.y - playerSize.y / 2, playerSize.x, playerSize.y);
             bool collision = false;
             for (int i = 0; i < mazeWidth; ++i)
             {
@@ -218,7 +231,7 @@ int Game::Update()
         }
 
         window.draw(player); // draw the player
-        //window.draw(enemy); // draw the enemy
+        window.draw(enemy); // draw the enemy
         window.draw(goal); // draw the goal
         window.display();
     }
