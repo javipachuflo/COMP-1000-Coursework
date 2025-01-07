@@ -3,8 +3,26 @@ C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze
 C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(31,25): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
 C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(32,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(32,26): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,111): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,111): warning C4244:         with
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,111): warning C4244:         [
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,111): warning C4244:             T=float
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,111): warning C4244:         ]
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,111): warning C4244:         and
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,111): warning C4244:         [
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,111): warning C4244:             T=int
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,111): warning C4244:         ]
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,77): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,77): warning C4244:         with
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,77): warning C4244:         [
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,77): warning C4244:             T=float
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,77): warning C4244:         ]
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,77): warning C4244:         and
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,77): warning C4244:         [
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,77): warning C4244:             T=int
+C:\Users\jasan\Visual Studio\GitHub\COMP-1000-Coursework\MysteryMaze\MysteryMaze\Game.cpp(233,77): warning C4244:         ]
   Generating code
-  1 of 350 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  1 of 398 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
