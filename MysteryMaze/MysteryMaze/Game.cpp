@@ -204,6 +204,31 @@ int Game::Update()
 			return 2;
 		}
 
+		//Check if the player has collided with the enemy, if so, the player loses the game 
+		sf::FloatRect enemyBounds(enemy.getPosition().x - enemy.getOrigin().x * enemy.getScale().x, enemy.getPosition().y - enemy.getOrigin().y * enemy.getScale().y, enemy.getGlobalBounds().width, enemy.getGlobalBounds().height);
+		if (playerBounds.intersects(enemyBounds)) {
+			//Do whatever you want to do when the player collides with the enemy
+			window.close();
+			return 3;
+		}
+
+        // Random enemy movement
+        sf::Vector2i enemyMovement(0, 0);
+        int direction = std::rand() % 4;
+        switch (direction) {
+        case 0: enemyMovement = sf::Vector2i(0, -1); break; // Up
+        case 1: enemyMovement = sf::Vector2i(0, 1); break;  // Down
+        case 2: enemyMovement = sf::Vector2i(-1, 0); break; // Left
+        case 3: enemyMovement = sf::Vector2i(1, 0); break;  // Right
+        }
+
+        sf::Vector2i newEnemyPosition = enemyPosition + enemyMovement;
+        if (newEnemyPosition.x >= 0 && newEnemyPosition.x < mazeWidth &&
+            newEnemyPosition.y >= 0 && newEnemyPosition.y < mazeHeight &&
+            maze[newEnemyPosition.x][newEnemyPosition.y] == 0) {
+            enemyPosition = newEnemyPosition;
+            enemy.setPosition(sf::Vector2f(enemyPosition.x * cellSize + cellSize / 2, enemyPosition.y * cellSize + cellSize / 2));
+        }
 
         window.clear(sf::Color::White); // Change the background color to white
 
